@@ -10,7 +10,7 @@ class NavigationBars extends StatefulWidget {
 }
 
 class _NavigationBarsState extends State<NavigationBars> {
-  int curIndex = 1;
+  int curIndex = 0; // Set default index to 0
   List<Widget> pages = [
     const QrGenerateScreen(),
     const HomeScreen(),
@@ -28,13 +28,14 @@ class _NavigationBarsState extends State<NavigationBars> {
           children: [
             IconButton(
               style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(
+                backgroundColor: MaterialStateProperty.all(
                   curIndex == 0 ? const Color(0xffFDB623) : Colors.grey[800],
                 ),
               ),
               onPressed: () {
-                curIndex = 0;
-                setState(() {});
+                setState(() {
+                  curIndex = 0;
+                });
               },
               icon: const Icon(
                 Icons.qr_code_2,
@@ -43,31 +44,17 @@ class _NavigationBarsState extends State<NavigationBars> {
             ),
             IconButton(
               style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(
+                backgroundColor: MaterialStateProperty.all(
                   curIndex == 1 ? const Color(0xffFDB623) : Colors.grey[800],
                 ),
               ),
               onPressed: () {
-                curIndex = 1;
-                setState(() {});
+                setState(() {
+                  curIndex = 1;
+                });
               },
               icon: const Icon(
                 Icons.qr_code_scanner_sharp,
-                color: Colors.white,
-              ),
-            ),
-            IconButton(
-              style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(
-                  curIndex == 2 ? const Color(0xffFDB623) : Colors.grey[800],
-                ),
-              ),
-              onPressed: () {
-                curIndex = 2;
-                setState(() {});
-              },
-              icon: const Icon(
-                Icons.history,
                 color: Colors.white,
               ),
             ),
