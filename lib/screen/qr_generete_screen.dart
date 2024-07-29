@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vazifa28/screen/text_qr.generete.dart';
+import 'package:vazifa28/screen/web_qr_generet.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 class QrGenerateScreen extends StatefulWidget {
@@ -13,10 +14,10 @@ class _QrGenerateScreenState extends State<QrGenerateScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff333333),
+      backgroundColor: const Color(0xff333333),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(left: 46, right: 46, top: 20, bottom: 20),
+          padding: const EdgeInsets.only(left: 46, right: 46, top: 20, bottom: 20),
           child: Column(
             children: [
               const Text(
@@ -48,7 +49,16 @@ class _QrGenerateScreenState extends State<QrGenerateScreen> {
                     ),
                   ),
                   ZoomTapAnimation(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const WebQrGenerate();
+                          },
+                        ),
+                      );
+                    },
                     child: Image.asset(
                       "assets/images/web2.png",
                       width: 80,

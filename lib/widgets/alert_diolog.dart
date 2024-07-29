@@ -28,10 +28,12 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
-            "Havolani Ulashish",
-            style: TextStyle(
-              color: Colors.black,
+          const Expanded(
+            child: Text(
+              "Havolani Ulashish",
+              style: TextStyle(
+                color: Colors.black,
+              ),
             ),
           ),
           IconButton(
@@ -48,31 +50,38 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
           ),
         ],
       ),
-      actions: [
-        const SizedBox(height: 30),
-        Text(
-          widget.result,
-          style: const TextStyle(
-            color: Color.fromARGB(255, 11, 37, 132),
-          ),
+      content: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              widget.result,
+              style: const TextStyle(
+                color: Color.fromARGB(255, 11, 37, 132),
+              ),
+            ),
+          ],
         ),
-        const SizedBox(height: 50),
+      ),
+      actions: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            TextButton(
-              child: const Padding(
-                padding: EdgeInsets.only(left: 10, right: 10),
-                child: Text(
-                  "Orqaga",
-                  style: TextStyle(
-                    color: Colors.black,
+            Expanded(
+              child: TextButton(
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: Text(
+                    "Orqaga",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
                   ),
                 ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
               ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -86,7 +95,7 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
               ),
               onPressed: () {
                 _launchUrl(url: Uri.parse(widget.result));
-                Navigator.of(context).pop(); // Close the dialog
+                Navigator.of(context).pop(); 
               },
             ),
           ],

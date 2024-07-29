@@ -10,7 +10,7 @@ class NavigationBars extends StatefulWidget {
 }
 
 class _NavigationBarsState extends State<NavigationBars> {
-  int curIndex = 0; // Set default index to 0
+  int curIndex = 0; 
   List<Widget> pages = [
     const QrGenerateScreen(),
     const HomeScreen(),
@@ -28,13 +28,13 @@ class _NavigationBarsState extends State<NavigationBars> {
           children: [
             IconButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
+                backgroundColor: WidgetStateProperty.all(
                   curIndex == 0 ? const Color(0xffFDB623) : Colors.grey[800],
                 ),
               ),
               onPressed: () {
                 setState(() {
-                  curIndex = 0;
+                  curIndex = 0; // Ensure this value is within the range
                 });
               },
               icon: const Icon(
@@ -44,13 +44,13 @@ class _NavigationBarsState extends State<NavigationBars> {
             ),
             IconButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
+                backgroundColor: WidgetStateProperty.all(
                   curIndex == 1 ? const Color(0xffFDB623) : Colors.grey[800],
                 ),
               ),
               onPressed: () {
                 setState(() {
-                  curIndex = 1;
+                  curIndex = 1; // Ensure this value is within the range
                 });
               },
               icon: const Icon(
